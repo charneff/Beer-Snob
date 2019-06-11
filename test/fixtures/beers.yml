@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  style: MyString
+  flavor_profile: MyString
+  brewery: one
+  user: one
+
+two:
+  style: MyString
+  flavor_profile: MyString
+  brewery: two
+  user: two
