@@ -1,0 +1,9 @@
+<h1> All Beers </h1>
+
+<% @beers.each do |beer| %>
+  <h2><%= beer.name %> - <%= beer.abv %>, by <%= beer.brewery.name %>
+  </h2>
+  <div>
+    <p><%= beer.flavor_profile %></p>
+  </div>
+<% end %>
