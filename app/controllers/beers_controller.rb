@@ -2,6 +2,7 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+    @beer.build_brewery
   end
 
   def create
@@ -16,6 +17,6 @@ class BeersController < ApplicationController
   private
 
   def beer_params
-    params.require(:beer).permit(:name, :style, :abv, :flavor_profile)
+    params.require(:beer).permit(:name, :style, :abv, :flavor_profile, :brewery_id, brewery_attributes: [:name, :location])
   end
 end
