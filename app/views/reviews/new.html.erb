@@ -1,0 +1,16 @@
+<%= form_for @review do |f| %>
+  <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <%= f.hidden_field :beer_id %>
+  <%= f.submit "Create Review" %>
+<% end %>
