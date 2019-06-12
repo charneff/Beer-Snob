@@ -7,7 +7,16 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    redirect_to review_path(@review)
+    # @review = current_user.reviews.build(review_params)
+    if @review.save
+      redirect_to review_path(@review)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @review = Review.find_by_id(params[:id])
   end
 
   def index
