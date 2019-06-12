@@ -2,9 +2,7 @@
 
 
 <% @beers.each do |beer| %>
-<% binding.pry %>
-  <h2><%= beer.name %> - <%= beer.abv %>%</h2>
-  by <%= beer.brewery.name %> </h2>
+  <h2><%= beer.name %> - <%= beer.abv %>%, by <%= beer.brewery.name %></h2>
     <%= link_to "Write a review", new_beer_review_path(beer.id) %>
   <div>
     <p><%= beer.flavor_profile %></p>

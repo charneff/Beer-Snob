@@ -19,6 +19,10 @@ class BeersController < ApplicationController
     end
   end
 
+  def show
+    @beer = Beer.find_by_id(params[:id])
+  end
+
   private
 
   def beer_params
