@@ -1,9 +1,5 @@
 class BeersController < ApplicationController
 
-  def index
-    @beers = Beer.all
-  end
-
   def new
     @beer = Beer.new
     @beer.build_brewery
@@ -11,7 +7,9 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.new(beer_params)
+    binding.pry
     @beer.user_id = session[:user_id]
+
     if @beer.save!
       redirect_to beer_path(@beer)
     else
@@ -21,6 +19,10 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find_by_id(params[:id])
+  end
+
+  def index
+    @beers = Beer.all
   end
 
   private

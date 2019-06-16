@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
       @review = @beer.reviews.build
     else
       @review = Review.new
-    end 
+    end
   end
 
   def create
@@ -23,7 +23,6 @@ class ReviewsController < ApplicationController
 
   def index
     if @beer = Beer.find_by_id(params[:beer_id])
-      @beer = Beer.find_by_id(params[:beer_id])
       @reviews = @beer.reviews
     else
       @reviews = Review.all

@@ -18,24 +18,22 @@
   <%= f.text_area :flavor_profile %><br><br>
 </div>
 
-<p> Select a brewery: </p>
+<p> Select a Brewery: </p>
 <div>
-  <%= f.collection_select :brewery_id, Brewery.all, :id, :name %>
+  <%= f.collection_select :brewery_id, Brewery.all, :id, :name, include_blank: 'Select One'%>
+
 </div>
 
-<p> Or create a new brewery: </p>
+<p> Or create a new Brewery: </p>
 <div>
-  <%= f.fields_for :brewery do |brewery_attribute| %>
-  <div>
-    <%= brewery_attribute.label :name %>
-    <%= brewery_attribute.text_field :name %>
-  </div>
-  <div>
-    <%= brewery_attribute.label :location %>
-    <%= brewery_attribute.text_field :location %>
-  </div>
+  <%=f.fields_for :brewery do |ba| %>
+    <%= ba.label :name %>
+    <%= ba.text_field :name %>
+
+    <%= ba.label :location  %>
+    <%= ba.text_field :location %>
   <% end %>
 </div>
-
-  <%= f.submit "Create Beer" %>
+<br>
+<%= f.submit %>
 <% end %>

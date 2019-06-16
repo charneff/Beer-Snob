@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :beers do
     resources :reviews, only: [:new, :index]
-  end 
+  end
   resources :breweries
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
